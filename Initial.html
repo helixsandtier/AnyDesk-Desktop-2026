@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+        }
+
+        .value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .activity {
+            background: white;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .activity h2 {
+            margin-top: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        button {
+            display: block;
+            margin: 25px auto 0;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+        <p>Track your daily fitness progress</p>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="card">
+                <h2>Steps</h2>
+                <div class="value">8,420</div>
+            </div>
+
+            <div class="card">
+                <h2>Calories</h2>
+                <div class="value">620</div>
+            </div>
+
+            <div class="card">
+                <h2>Active Minutes</h2>
+                <div class="value">75</div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h2>Today's Activities</h2>
+
+            <div class="activity-item">
+                <span>Morning Run</span>
+                <strong>30 min</strong>
+            </div>
+
+            <div class="activity-item">
+                <span>Walking</span>
+                <strong>25 min</strong>
+            </div>
+
+            <div class="activity-item">
+                <span>Cycling</span>
+                <strong>20 min</strong>
+            </div>
+
+            <button onclick="showProgress()">Check Progress</button>
+
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        function showProgress() {
+            const steps = 8420;
+            const goal = 10000;
+
+            const percentage = Math.round((steps / goal) * 100);
+
+            document.getElementById("message").textContent =
+                `You have reached ${percentage}% of your daily step goal.`;
+        }
+    </script>
+</body>
+</html>
